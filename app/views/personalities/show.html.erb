@@ -5,7 +5,7 @@
           <p class="lead"><%= @personality.description %>.</p>
           <hr class="my-4">
           <p> <%= link_to @personality.user.first_name %> asks for an hourly rate of $<%= @personality.price_hour %> </p>
-          <a class="btn btn-primary btn-lg" href="#" role="button"> Book Sini</a>
+          <a class="btn btn-primary btn-lg" href="#" role="button"> <%= link_to 'Book', new_personality_booking_path(@personality) %> </a>
       </div>
       <div class="jumbotron col-3">
         <img  class="img-thumbnail" src= <%= @personality.image_url %>>

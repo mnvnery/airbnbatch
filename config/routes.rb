@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'personalities#index'
-  resources :personalities
+  resources :personalities do
+    resources :bookings, only: [:new, :create]
+  end
+
+  resources :bookings, only: [:index, :show, :destroy, :update]
   # do
   #   resources :doses, only: [:new, :create]
   # end
