@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'personalities#index'
-  resources :personalities, only: [:index, :show, :new, :create, :update, :edit]
+  resources :personalities
   # do
   #   resources :doses, only: [:new, :create]
   # end
