@@ -10,6 +10,12 @@
           <%= f.button :button, "Cancel", type: "reset", class: "btn btn-danger ml-2" %>
         <% end %>
     </div>
+    <div>
+      <%= link_to "🗑",
+                personality_path(@personality),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+    </div>
   </div>
   <div>
   <%= link_to "Back", personalities_path, class: "btn btn-outline-primary text-center"%>

@@ -35,6 +35,12 @@ class PersonalitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @personality = Personality.find(params[:id])
+    @personality.destroy
+    redirect_to personalities_path
+  end
+
   private
 
   def personality_params
