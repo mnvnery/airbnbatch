@@ -7,7 +7,7 @@
 <p>Price Per Hour: <%= @personality.price_hour %></p>
 
 <p>Belongs to: <%= @personality.user.first_name %></p>
-
+<%= link_to 'Book', new_personality_booking_path(@personality), class: 'align-self-end' %>
 
 <div>
   <p></p>

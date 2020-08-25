@@ -1,0 +1,17 @@
+<h1>Your Bookings</h1>
+
+<ul>
+ <% @bookings.each do |booking| %>
+<li>Booking with <%= booking.personality.name %> on the <%= booking.start_date.day %>/<%= booking.start_date.month %>
+
+ </li>
+<% end %>
+</ul>
+
+<h1>Bookings with you</h1>
+<ul>
+ <% @my_bookings.each do |mybooking| %>
+<li>Booking from <%= mybooking.user.first_name %> on the <%= mybooking.start_date.day %>/<%= mybooking.start_date.month %>
+ </li>
+<% end %>
+</ul>
