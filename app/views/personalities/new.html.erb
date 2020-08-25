@@ -1,15 +1,18 @@
-<h1>here is where the form will be</h1>
-
-<%= simple_form_for @personality do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price_hour %>
-  <%= f.button :submit, class: "btn-primary" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-<% end %>
-
-<div>
-  <p></p>
-  <%= link_to "Back", personalities_path %>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="card bg-light mb-3 rounded col-xm-12 col-5" >
+      <h1 class="card-title p-3">Add a new Personality</h1>
+       <%= simple_form_for @personality do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :price_hour %>
+          <%= f.input :image_url %>
+          <%= f.button :submit, class: "btn-primary" %>
+          <%= f.button :button, "Cancel", type: "reset", class: "btn btn-danger ml-2" %>
+        <% end %>
+    </div>
+  </div>
+  <div>
+  <%= link_to "Go back", personalities_path, class: "btn btn-outline-primary text-center" %>
+  </div>
 </div>
-

@@ -1,14 +1,24 @@
-<h1> Here are all the personalities</h1>
-
-<%= link_to 'Add new Personality', new_personality_path  %>
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://miro.medium.com/max/10944/0*YK9PoWRQLxnaaooW);">
+  <div class="container">
+    <h1>AirBnBatch connects <strong>you</strong> with <strong>fascinating personalities!</strong>!</h1>
+    <p>Get to know them the way you want!</p>
+    <%= link_to "Add your Personality",new_personality_path , class: "btn btn-flat" %>
+  </div>
+</div>
 
 <p></p>
-<p> List:</p>
 
 <div>
   <% @personalities.each do |personality| %>
-    <ul> <%=  link_to personality.name, personality_path(personality) %> </ul>
+    <div>
+      <div class="card-product">
+      <img src= <%= personality.image_url %> />
+      <div class="card-product-infos">
+          <h2> <%=  link_to personality.name, personality_path(personality) %> - $<%= personality.price_hour %> per hour</h2>
+          <p> <%= personality.description %> </p>
+      </div>
+    </div>
   <% end %>
-
 </div>
+
+

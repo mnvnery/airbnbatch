@@ -35,10 +35,16 @@ class PersonalitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @personality = Personality.find(params[:id])
+    @personality.destroy
+    redirect_to personalities_path
+  end
+
   private
 
   def personality_params
     # Not sure if I have to permit user_id here. Hard to test without current user login ready.
-    params.require(:personality).permit(:name, :description, :price_hour)
+    params.require(:personality).permit(:name, :description, :price_hour, :image_url)
   end
 end
