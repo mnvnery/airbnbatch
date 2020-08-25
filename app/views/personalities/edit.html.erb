@@ -9,6 +9,14 @@
 <% end %>
 
 <div>
+  <%= link_to "🗑",
+            personality_path(@personality),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+</div>
+
+
+<div>
   <p></p>
   <%= link_to "Back", personalities_path %>
 </div>
