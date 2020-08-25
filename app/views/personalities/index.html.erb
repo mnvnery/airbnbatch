@@ -1,0 +1,14 @@
+<h1> Here are all the personalities</h1>
+
+<%= link_to 'Add new Personality', new_personality_path  %>
+
+
+<p></p>
+<p> List:</p>
+
+<div>
+  <% @personalities.each do |personality| %>
+    <ul> <%=  link_to personality.name, personality_path(personality) %> </ul>
+  <% end %>
+
+</div>

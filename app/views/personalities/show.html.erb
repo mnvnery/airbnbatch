@@ -1,0 +1,15 @@
+<h1> This is where you can see one specific personality</h1>
+
+<%= link_to 'Edit this personality', edit_personality_path  %>
+
+<p>Name: <%= @personality.name %></p>
+<p>Description: <%= @personality.description %></p>
+<p>Price Per Hour: <%= @personality.price_hour %></p>
+
+<p>Belongs to: <%= @personality.user.first_name %></p>
+
+
+<div>
+  <p></p>
+  <%= link_to "Back", personalities_path %>
+</div>
