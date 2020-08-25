@@ -1,15 +1,20 @@
-<h1> This is where you can see one specific personality</h1>
-
-<%= link_to 'Edit this personality', edit_personality_path  %>
-
-<p>Name: <%= @personality.name %></p>
-<p>Description: <%= @personality.description %></p>
-<p>Price Per Hour: <%= @personality.price_hour %></p>
-
-<p>Belongs to: <%= @personality.user.first_name %></p>
-
-
-<div>
-  <p></p>
-  <%= link_to "Back", personalities_path %>
+<div class=container-fluid>
+  <div class="container-fluid row">
+      <div class="jumbotron col-9">
+          <h1 class="display-4"> <%= @personality.name  %> </h1>
+          <p class="lead"><%= @personality.description %>.</p>
+          <hr class="my-4">
+          <p> <%= link_to @personality.user.first_name %> asks for an hourly rate of $<%= @personality.price_hour %> </p>
+          <a class="btn btn-primary btn-lg" href="#" role="button"> Book Sini</a>
+      </div>
+      <div class="jumbotron col-3">
+        <img  class="img-thumbnail" src= <%= @personality.image_url %>>
+        <% if current_user == @personality.user %>
+          <%= link_to 'Edit your personality', edit_personality_path  %>
+        <% end %>
+      </div>
+  </div>
+    <div>
+      <%= link_to "Back", personalities_path %>
+    </div>
 </div>
