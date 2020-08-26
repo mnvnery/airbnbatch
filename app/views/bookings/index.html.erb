@@ -1,40 +1,10 @@
-<div class="tabs">
-
-  <input type="radio" id="tab1" name="tab-control" checked>
-  <input type="radio" id="tab2" name="tab-control">
-  <input type="radio" id="tab4" name="tab-control">
-  <ul>
-    <li title="Gigs"><label for="tab1" role="button"><span>Gigs</span></label></li>
-    <li title="Rentals"><label for="tab2" role="button"><span>Rentals</span></label></li>
-        <li title="Reviews"><label for="tab4" role="button"><br><span>Reviews</span></label></li>
-  </ul>
-
-  <div class="slider"><div class="indicator"></div></div>
-  <div class="content">
-    <section>
-      <h2>Features</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati atque quibusdam officiis est dolorum minima deleniti ratione molestias numquam. Voluptas voluptates quibusdam cum?</section>
-        <section>
-          <h2>Delivery Contents</h2>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas adipisci a accusantium eius ut voluptatibus ad impedit nulla, ipsa qui. Quasi temporibus eos commodi aliquid impedit amet, similique nulla.</section>
-        <section>
-          <h2>Shipping</h2>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nemo ducimus eius, magnam error quisquam sunt voluptate labore, excepturi numquam! Alias libero optio sed harum debitis! Veniam, quia in eum.</section>
-    <section>
-          <h2>Returns</h2>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dicta vero rerum? Eaque repudiandae architecto libero reprehenderit aliquam magnam ratione quidem? Nobis doloribus molestiae enim deserunt necessitatibus eaque quidem incidunt.</section>
-  </div>
-</div>
-
-
-
-
 <h2>Your Bookings</h2>
 <div class="cards">
 <% @bookings.each do |booking| %>
 <div class="card-product" style="width: 400px">
   <img src="<%= booking.personality.image_url %>" />
   <div class="card-product-infos">
-    <h2><%= booking.personality.name %></h2>
+    <h2><%= link_to booking.personality.name, booking_path(booking) %></h2>
     <p><%= booking.start_date.day %>/<%= booking.start_date.month %> for <strong><%=  ((booking.end_date - booking.start_date) / 3600).round %> hours </strong> </p>
     <p><% if booking.status == true %>
         Booking Accepted ✔️
