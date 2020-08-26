@@ -1,12 +1,14 @@
 class PersonalitiesController < ApplicationController
   def index
     @personalities = Personality.all
-
-
   end
 
   def show
     @personality = Personality.find(params[:id])
+    @user_lat = @personality.user.geocode[0]
+    @user_lng = @personality.user.geocode[1]
+
+    @markers = [{ lat: @user_lat, lng: @user_lng }]
   end
 
   def new
