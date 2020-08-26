@@ -29,6 +29,10 @@ class BookingsController < ApplicationController
     @my_bookings = Booking.where(personality_id: current_user.id)
   end
 
+  def update_status
+
+  end
+
   def show
     set_booking
     @personality = @booking.personality
@@ -36,7 +40,7 @@ class BookingsController < ApplicationController
 
   def update
     set_booking
-    @booking.save!
+    @booking.update(booking_params)
     redirect_to bookings_path
   end
 
