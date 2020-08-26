@@ -1,0 +1,15 @@
+<div class=container-fluid>
+  <div class="container-fluid row">
+      <div class="jumbotron col-9">
+          <h4>Booking with <%= @booking.personality.name  %></h4>
+          <p><%= @booking.start_date.day %>/<%= @booking.start_date.month %> for <strong><%=  ((@booking.end_date - @booking.start_date) / 3600).round %> hours </strong> </p>
+      </div>
+      <div class="jumbotron col-3">
+        <img  class="img-thumbnail" src= <%= @booking.personality.image_url %>>
+        <%= link_to 'Edit your booking', edit_booking_path %>
+      </div>
+  </div>
+    <div>
+      <%= link_to "Back", bookings_path %>
+    </div>
+</div>
