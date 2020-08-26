@@ -29,10 +29,6 @@ class BookingsController < ApplicationController
     @my_bookings = Booking.where(personality_id: current_user.id)
   end
 
-  def update_status
-
-  end
-
   def show
     set_booking
     @personality = @booking.personality
@@ -40,8 +36,16 @@ class BookingsController < ApplicationController
 
   def update
     set_booking
-    @booking.update(booking_params)
-    redirect_to bookings_path
+    if params[:commit] == 'Confirm'
+      @booking.update(status: true)
+      redirect_to bookings_path
+    elsif params[:commit] == 'Decline'
+      @booking.update(status: false)
+      redirect_to bookings_path
+    else
+      @booking.update(booking_params)
+      redirect_to bookings_path
+    end
   end
 
   def destroy
