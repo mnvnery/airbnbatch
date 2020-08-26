@@ -34,6 +34,10 @@ class BookingsController < ApplicationController
     @personality = @booking.personality
   end
 
+  def edit
+    set_booking
+  end
+
   def update
     set_booking
     if params[:commit] == 'Confirm'
