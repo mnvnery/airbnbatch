@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :show, :destroy, :update]
+  resources :bookings, only: [:index, :show, :destroy, :update] do
+    resources :personality_reviews, only: [:new, :create]
+  end
+
   # do
   #   resources :doses, only: [:new, :create]
   # end
