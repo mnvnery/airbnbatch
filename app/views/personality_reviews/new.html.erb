@@ -4,7 +4,7 @@
       <h1 class="card-title p-3">Add a new Review</h1>
        <%= simple_form_for [ @booking, @personality_review ] do |f| %>
           <%= f.input :comment %>
-          <%= f.input :rating %>
+          <%= f.input :rating, collection: 0..5 %>
           <%= f.button :submit, class: "btn-primary" %>
           <%= f.button :button, "Cancel", type: "reset", class: "btn btn-danger ml-2" %>
         <% end %>

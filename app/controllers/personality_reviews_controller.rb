@@ -11,7 +11,7 @@ class PersonalityReviewsController < ApplicationController
     @personality_review.booking = @personality
 
     if @personality_review.save
-      redirect_to personality_path(@personality)
+      redirect_to booking_path(booking)
     else
       render :new
     end
