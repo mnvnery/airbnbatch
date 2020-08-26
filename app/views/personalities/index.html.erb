@@ -7,18 +7,21 @@
 </div>
 
 <p></p>
-
 <div>
-  <% @personalities.each do |personality| %>
-    <div>
-      <div class="card-product">
-      <img src= <%= personality.image_url %> />
-      <div class="card-product-infos">
-          <h2> <%=  link_to personality.name, personality_path(personality) %> - $<%= personality.price_hour %> per hour</h2>
-          <p> <%= personality.description %> </p>
-      </div>
+  <div class="m-5">
+    <div class="row align-items-center">
+      <% @personalities.each do |personality| %>
+        <div class="card-product">
+          <img src= <%= personality.image_url %> />
+            <div class="card-product-infos ">
+              <h2> <%=  link_to personality.name, personality_path(personality), style: 'color:#eb535b;' %></h2>
+              <h3> from $<%= personality.price_hour %> per hour</h3>
+              <p> <%= personality.description %> </p>
+            </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
 
 
