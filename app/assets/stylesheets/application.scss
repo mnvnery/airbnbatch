@@ -27,3 +27,17 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+.text-center {
+  font-size: 28px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#orange-word {
+ color:#eb535b;
+}
+
+.text-center .fas {
+  color:#eb535b;
+}
