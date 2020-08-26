@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RentAFriend</title>
+    <title>AirbnBatch</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag asset_path('apple-icon-180x180.png') %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -16,7 +16,7 @@
     <!-- NAVBAR -->
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <a class="navbar-brand" href="<%= personalities_path %>">
-        AirbnBatch
+        <img src="/assets/airbnb-batch.png"/>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,12 +42,13 @@
 <!-- <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p> -->
     <%= render 'shared/flashes' %>
-
+    <!--
     <% if user_signed_in? %>
       <p>Hello <%= current_user.email %></p>
       <% else %>
       <p>Please sign in! </p>
     <% end %>
+    -->
     <%= yield %>
     <!-- FOOTER -->
     <div class="footer">

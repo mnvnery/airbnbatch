@@ -34,10 +34,22 @@ class BookingsController < ApplicationController
     @personality = @booking.personality
   end
 
+  def edit
+    set_booking
+  end
+
   def update
     set_booking
-    @booking.save!
-    redirect_to bookings_path
+    if params[:commit] == 'Confirm'
+      @booking.update(status: true)
+      redirect_to bookings_path
+    elsif params[:commit] == 'Decline'
+      @booking.update(status: false)
+      redirect_to bookings_path
+    else
+      @booking.update(booking_params)
+      redirect_to bookings_path
+    end
   end
 
   def destroy
