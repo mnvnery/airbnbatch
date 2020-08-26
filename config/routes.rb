@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :show, :destroy, :update]
+  resources :bookings, only: [:index, :show, :destroy, :edit, :update]
   post 'bookings/update_status', to: 'bookings#update_status', as: 'update_status'
 
   # do
