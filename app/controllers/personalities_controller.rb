@@ -12,6 +12,7 @@ class PersonalitiesController < ApplicationController
 
   def show
     @personality = Personality.find(params[:id])
+    @booking = Booking.new
     @user_lat = @personality.user.geocode[0]
     @user_lng = @personality.user.geocode[1]
 

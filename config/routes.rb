@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :personality_reviews, only: [:new, :create]
   end
 
+  get "index_gigs", to: "bookings#index_gigs", as: 'index_gigs'
   # do
   #   resources :doses, only: [:new, :create]
   # end

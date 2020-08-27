@@ -15,7 +15,11 @@
 
       <div class="jumbotron col-3">
         <img  class="img-thumbnail" src= <%= @booking.personality.image_url %>>
-        <%= link_to 'Edit your booking', edit_booking_path %>
+        <%= link_to 'Edit |', edit_booking_path %>
+        <%= link_to "Cancel",
+            booking_path(@booking),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
       </div>
   </div>
     <div>
