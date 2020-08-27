@@ -1,6 +1,13 @@
 class PersonalitiesController < ApplicationController
   def index
     @personalities = Personality.all
+    if params[:query].present?
+      sql_query = "name @@ :query OR users.location @@ :query"
+      @personalities = Personality.where(sql_query, query: "%#{params[:query]}%")
+      @personalities = Personality.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @personalities = Personality.all
+    end
   end
 
   def show

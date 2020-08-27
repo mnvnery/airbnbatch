@@ -10,15 +10,24 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-        <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="navbarDropdown" >
-          <a class="dropdown-item" href="<%= bookings_path %>">Rentals</a>
-          <a class="dropdown-item" href="<%= index_gigs_path %>">Gigs</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#"><strong>Sign out</strong></a>
-        </div>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Rentals", bookings_path, class: "dropdown-item" %>
+              <%= link_to "Gigs", "index_gigs_path", class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Settings", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </li>
     </ul>
   </div>
 </div>
+
