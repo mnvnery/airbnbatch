@@ -6,13 +6,26 @@
   </div>
 </div>
 
-<h3 class= "text-center">Some of the <strong id="orange-word">coolest People</strong> in the community you can book</h3>
+<div class="text-center mx-auto">
+  <h3 class= "pt-3">Check out some of the <strong id="orange-word">coolest People</strong> in the Batch 448 community</h3>
 
-<div class= "text-center"><i class="fas fa-angle-double-down"></i>
+  <i class="fas fa-angle-double-down"></i>
+
+  <div class="pt-5">
+    <%= form_tag personalities_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control w-50 mx-auto",
+        placeholder: "Find Dope Personalities by Name or Location"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary mb-3 mt-3" %>
+    <% end %>
+  </div>
 </div>
 
-<div>
-  <div class="pb-5 m-5">
+<div class="border-top mt-5 mb-5">
+  <div class="p-4">
+    <h5 class= "text-left">Personalities you might love to spend time with:</h5>
     <div class="row justify-content-center justify-content-lg-start">
       <% @personalities.each do |personality| %>
         <div class="card-product">
@@ -27,3 +40,8 @@
     </div>
   </div>
 </div>
+
+<div class="mb-5"> </div>
+
+
+
