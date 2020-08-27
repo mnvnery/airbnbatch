@@ -6,6 +6,15 @@
   width: 56px;
   border-radius: 50%;
 }
+
+.avatar-xlarge {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1), 0 6px 10px 0 rgba(0,0,0,0.05);
+
+}
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;

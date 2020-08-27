@@ -31,9 +31,9 @@
         <div class="card-product">
           <img src= <%= personality.image_url %> />
             <div class="card-product-infos ">
-              <h2> <%=  link_to personality.name, personality_path(personality), style: 'color:#eb535b;' %></h2>
+              <h2 style='color:#eb535b;'> <%= personality.user.first_name  %> <%=  link_to personality.name, personality_path(personality), style: 'color:#eb535b;' %></h2>
               <h3> from $<%= personality.price_hour %> per hour</h3>
-              <p> <%= personality.description %> </p>
+              <!-- <p> <%= personality.description %> </p> -->
             </div>
         </div>
       <% end %>

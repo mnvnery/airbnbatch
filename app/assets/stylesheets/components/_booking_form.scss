@@ -1,4 +1,91 @@
 .booking-container {
-  background-color: rgba(0,0,0,0.1);
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 290px;
+  border-radius: 8px;
 }
+
+.date-field {
+  color: rgba(0,0,0,0.7);
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  border-width: 0px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1), 0 6px 10px 0 rgba(0,0,0,0.05);
+  font-size: 10px;
+  margin-bottom: 20px;
+  margin-top: 3px;
+}
+
+
+.booking-container p {
+  margin: 0;
+  font-size: 12px;
+  padding-left: 5px;
+  font-weight: 600;
+}
+.booking-container .price-hour {
+ font-size: 20px;
+ font-weight: 600;
+}
+
+.btn-pink {
+    color: #fff;
+    background-color: #eb535b;
+    border-color: #eb535b;
+    border-radius: 8px;
+}
+.btn-pink:hover {
+    color: #fff;
+    background-color: #f73b45;
+    border-color: #f73b45;
+}
+.user-name {
+  font-weight: 600;
+}
+
+.personality-title {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8em;
+ }
+
+ .personality-img-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+ .personality-img-container:hover {
+  opacity: 0.8;
+
+}
+
+
+ .edit-text-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+ }
+
+ .edit-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 86px;
+  height: 86px;
+  opacity: 0;
+ }
+ .edit-container:hover {
+  opacity: 1;
+ }
+
+
+  .edit-text-center a {
+    text-decoration: none;
+    color: white;
+ }
+
+
