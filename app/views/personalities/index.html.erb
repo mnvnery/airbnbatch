@@ -5,11 +5,15 @@
     <%= link_to "Add your Personality",new_personality_path , class: "btn btn-flat" %>
   </div>
 </div>
+
 <h3 class= "text-center">Some of the <strong id="orange-word">coolest People</strong> in the community you can book</h3>
-<div class= "text-center"><i class="fas fa-angle-double-down"></i></div>
+
+<div class= "text-center"><i class="fas fa-angle-double-down"></i>
+</div>
+
 <div>
-  <div class="m-5">
-    <div class="row align-items-center">
+  <div class="pb-5 m-5">
+    <div class="row justify-content-center justify-content-lg-start">
       <% @personalities.each do |personality| %>
         <div class="card-product">
           <img src= <%= personality.image_url %> />
