@@ -1,4 +1,4 @@
-<div class=container-fluid>
+<div class='container-fluid mb-5'>
   <div class="container-fluid row">
       <div class="jumbotron col-9">
 
@@ -24,8 +24,9 @@
   </div>
     <div>
       <%= link_to "Back", bookings_path %>
+      <% if @booking.personality_reviews.count < 1 %>
       <%= link_to "Add a new review", new_booking_personality_review_path(@booking) %>
-
+      <% end %>
     </div>
 </div>
 

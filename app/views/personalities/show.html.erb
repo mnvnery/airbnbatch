@@ -1,46 +1,83 @@
-<div class="container w-100">
-  <div class="row jumbotron p-1 m-1 border">
-    <div class="col-8 mb-0">
-      <% if current_user == @personality.user %>
-        <%= link_to 'Edit your personality', edit_personality_path  %>
-      <% end %>
-      <div class="row">
-        <div class="col-3">
-          <img class="img-thumbnail" alt="avatar-xl-sqaure" src= <%= @personality.image_url %> />
-        </div>
-        <div class="col-9">
-          <h1 class="text-center"> <%= @personality.name  %> </h1>
-          <p id='description' class="lead pt-3 text-center"><%= @personality.description %>.</p>
+<div class="container w-100 pl-0 pt-4">
+  <div class="container pl-0">
+    <div class="d-flex flex-row mt-3">
+      <div class='personality-img-container'>
+        <img src="<%= @personality.image_url %>" alt="personality" class='avatar-xlarge'>
+        <div class="edit-container">
+        <p class="edit-text-center">
+          <% if current_user == @personality.user %>
+          <%= link_to 'Edit', edit_personality_path  %>
+        <% end %>
+        </p>
         </div>
       </div>
-
-        <hr class="my-4">
-        <p> <%= link_to @personality.user.first_name %> charges $<%= @personality.price_hour %> per hour</p>
-        <a class="btn btn-primary btn-lg" href="<%= new_personality_booking_path(@personality) %>" role="button"> Book </a>
-
+      <div class="align-self-center mx-3">
+          <p class='user-name my-0'> <%= @personality.user.first_name %> </p>
+          <p class='personality-title my-0'> <%= @personality.name %> </p>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-8 pl-0">
+        <div class="border-top mr-5"></div>
+        <p class="mt-4" style="font-weight: 600">About me</p>
+        <p class="mr-5" style="font-size: 0.9em"><%= @personality.description %></p>
+        <div class="mt-5 border-top mr-5"></div>
+        <p class="mt-4" style="font-weight: 600">Reviews</p>
+        <div class="cards">
+          <% @personality.bookings.each do |booking|  %>
+            <% booking.personality_reviews.each do |personality_review|  %>
+            <div class="pr-3">
+            <i class="fas fa-star" style="font-size:10px; color: #eb535b"></i><span style="font-size:10px; font-weight:600"> <%= (personality_review.rating) %></span>
+            <p style="font-size: 0.7em"> <%= personality_review.comment %></p>
+            </div>
+           <% end %>
+           <% end %>
+        </div>
+        <div class="mt-5 border-top mr-5"></div>
+        <p class="mt-4" style="font-weight: 600">Location</p>
+        <div id="map"
+           style="width: 100% !important; height: 100% !important;"
+           data-markers="<%= @markers.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="booking-container p-3 sticky-top">
 
-    <div class="col-4 mb-0">
-      <div id="map"
-         style="width: 100% !important; height: 100% !important;"
-         data-markers="<%= @markers.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+            <%= simple_form_for [@personality, @booking] do |f| %>
+            <p class="price-hour pb-3"><%= @personality.price_hour %>€<span style="font-size: 12px">/hour</span></p>
+            <p>From</p>
+            <%= f.datetime_local_field :start_date, class: 'date-field' %>
+            <p>To</p>
+            <%= f.datetime_local_field :end_date, class: 'date-field' %>
+            <%= f.submit "Book", class: "btn btn-pink w-100"%>
+
+            <p class="mt-4 border-top"></p>
+            <div class='d-flex justify-content-between mt-3'>
+              <p><strong>Total</strong></p>
+              <p><strong><%= @booking.total_price %>€</strong></p>
+            </div>
+        <% end%>
+        </div>
+
       </div>
     </div>
 
   </div>
 
-<div>
-  <%= simple_form_for [@personality, @booking] do |f| %>
-        <%= f.datetime_local_field :start_date%>
-        <%= f.datetime_local_field :end_date %>
-        <%= f.submit "Book", class: "btn btn-primary"%>
-  <% end%>
-</div>
 
 
-  <div>
-    <%= link_to "Back", personalities_path, class: "btn btn-outline-primary" %>
-  </div>
+
+
+
+
+
+
+
+   <!-- <%= link_to "Back", personalities_path, class: "btn btn-outline-primary" %> -->
+
 
 </div>
