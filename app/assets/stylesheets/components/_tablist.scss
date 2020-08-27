@@ -87,6 +87,12 @@ body {
     display: none;
   }
 
+  .cards-tab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0px;
+  }
+
   .content section h2,
   ul li label {
     font-family: "Montserrat";
