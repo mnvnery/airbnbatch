@@ -13,40 +13,38 @@
   <div class="content">
     <section>
       <h2>Gigs</h2>
-      <div class="cards">
+      <div class="cards-tab">
       <% @my_bookings.each do |mybooking| %>
       <div class="card-product tab" style="width: 300px">
-        <img src="#" />
-        <div class="card-product-infos">
-          <p><strong><%= mybooking.user.first_name %> has booked you</strong></p>
+          <img src="<%= mybooking.personality.image_url %>" />
+          <div class="card-product-infos">
+          <p><strong><%= link_to mybooking.user.first_name, booking_path(mybooking) %> has booked you</strong></p>
           <p><%= mybooking.start_date.day %>/<%= mybooking.start_date.month %> for <strong><%=  ((mybooking.end_date - mybooking.start_date) / 3600).round %> hours </strong> </p>
-          <p>
-            <% if mybooking.status == nil %>
-            <%= form_for(mybooking) do |f| %>
-            <%= f.submit "Confirm", class: 'btn btn-outline-success btn-sm' %>
-            <%= f.submit "Decline", class: 'btn btn-outline-danger btn-sm' %>
-            <% end %>
-            <% end %>
-          </p>
-          <p>
-            <% if mybooking.status == true %>
+          <p><% if mybooking.status == nil %>
+              <%= form_for(mybooking) do |f| %>
+              <%= f.submit "Confirm", class: 'btn btn-outline-success btn-sm' %>
+              <%= f.submit "Decline", class: 'btn btn-outline-danger btn-sm' %>
+              <% end %>
+              <% end %>
+              <% if mybooking.status == true %>
               Booking Accepted ✔️
              <% elsif mybooking.status == false %>
               Booking cancelled ❌
              <% end %>
           </p>
-      </div>
-      <% end %>
-      </div>
+        </div>
+    </div>
+    <% end %>
+    </div>
     </section>
     <section>
       <h2>Rentals</h2>
-       <div class="cards">
-        <% @bookings.each do |booking| %>
-          <div class="card-product tab" style="width: 300px">
+       <div class="cards-tab">
+       <% @bookings.each do |booking| %>
+       <div class="card-product tab" style="width: 300px">
             <img src="<%= booking.personality.image_url %>" />
             <div class="card-product-infos">
-              <p><strong><%= booking.personality.name %></strong></p>
+              <p><strong><%= link_to booking.personality.name, booking_path(booking) %></strong></p>
               <p><%= booking.start_date.day %>/<%= booking.start_date.month %> for <strong><%=  ((booking.end_date - booking.start_date) / 3600).round %> hours </strong> </p>
               <p><% if booking.status == true %>
                   Booking Accepted ✔️
@@ -57,7 +55,7 @@
                  <% end %>
               </p>
             </div>
-          </div>
+        </div>
         <% end %>
         </div>
     </section>
