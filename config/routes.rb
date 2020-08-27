@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
+
   root to: 'personalities#index'
   resources :personalities do
     resources :bookings, only: [:new, :create]
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :destroy, :edit, :update] do
     resources :personality_reviews, only: [:new, :create]
   end
+
+  resources :users, only: [:show]
 
   get "index_gigs", to: "bookings#index_gigs", as: 'index_gigs'
   # do
