@@ -30,6 +30,15 @@
 
   </div>
 
+<div>
+  <%= simple_form_for [@personality, @booking] do |f| %>
+        <%= f.datetime_local_field :start_date%>
+        <%= f.datetime_local_field :end_date %>
+        <%= f.submit "Book", class: "btn btn-primary"%>
+  <% end%>
+</div>
+
+
   <div>
     <%= link_to "Back", personalities_path, class: "btn btn-outline-primary" %>
   </div>
