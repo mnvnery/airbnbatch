@@ -1,41 +1,38 @@
-// Cards
+// big-Cards
 
-.card-product {
+.big-card-product {
   overflow: hidden;
-  width: 370px;
-  height: 100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin: 12px;
-  border-radius: 8px;
 }
 
-.card-product .tab {
+.big-card-product .tab {
   height: 120px;
 }
 
-.card-product img {
+.big-card-product img {
   height: 100%;
-  width: 120px;
+  width: 300px;
   object-fit: cover;
 }
 
-.card-product h2 {
-  font-size: 15px;
+.big-card-product h2 {
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product h3 {
+.big-card-product h3 {
   font-size: 12px;
   font-weight: bold;
   margin-top: 2px;
   font-family: 'Alata', sans-serif;
 }
 
-.card-product p {
+.big-card-product p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -43,6 +40,6 @@
   margin-top: 10px;
 }
 
-.card-product .card-product-infos {
+.big-card-product .big-card-product-infos {
   padding: 16px;
 }

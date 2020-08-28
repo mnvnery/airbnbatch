@@ -1,50 +1,23 @@
 <div class="tabs">
 
   <input type="radio" id="tab1" name="tab-control" checked>
-  <input type="radio" id="tab2" name="tab-control">
   <input type="radio" id="tab4" name="tab-control">
   <ul>
-    <li title="Gigs"><label for="tab1" role="button"><span>Gigs</span></label></li>
-    <li title="Rentals"><label for="tab2" role="button"><span>Rentals</span></label></li>
-    <li title="Reviews"><label for="tab4" role="button"><br><span>Reviews</span></label></li>
+    <li title="Gigs"><label for="tab1" role="button"><span>Upcoming Rentals</span></label></li>
+    <li title="Reviews"><label for="tab4" role="button"><br><span>Past Rentals</span></label></li>
   </ul>
 
   <div class="slider"><div class="indicator"></div></div>
   <div class="content">
     <section>
-      <h2>Gigs</h2>
+      <h2>Upcoming Rentals</h2>
       <div class="cards-tab">
-      <% @my_bookings.each do |mybooking| %>
-      <div class="card-product tab" style="width: 300px">
-          <img src="<%= mybooking.personality.image_url %>" />
-          <div class="card-product-infos">
-          <p><strong><%= link_to mybooking.user.first_name, booking_path(mybooking) %> has booked you</strong></p>
-          <p><%= mybooking.start_date.day %>/<%= mybooking.start_date.month %> for <strong><%=  ((mybooking.end_date - mybooking.start_date) / 3600).round %> hours </strong> </p>
-          <p><% if mybooking.status == nil %>
-              <%= form_for(mybooking) do |f| %>
-              <%= f.submit "Confirm", class: 'btn btn-outline-success btn-sm' %>
-              <%= f.submit "Decline", class: 'btn btn-outline-danger btn-sm' %>
-              <% end %>
-              <% end %>
-              <% if mybooking.status == true %>
-              Booking Accepted ✔️
-             <% elsif mybooking.status == false %>
-              Booking cancelled ❌
-             <% end %>
-          </p>
-        </div>
-    </div>
-    <% end %>
-    </div>
-    </section>
-    <section>
-      <h2>Rentals</h2>
-       <div class="cards-tab">
        <% @bookings.each do |booking| %>
+       <% if booking.end_date > Time.now %>
        <div class="card-product tab" style="width: 300px">
             <img src="<%= booking.personality.image_url %>" />
             <div class="card-product-infos">
-              <p><strong><%= link_to booking.personality.name, booking_path(booking) %></strong></p>
+              <p style="color: #eb535b"><strong>  <%= booking.personality.user.first_name %>, <%= link_to booking.personality.name, booking_path(booking), style: 'color: #eb535b' %></strong></p>
               <p><%= booking.start_date.day %>/<%= booking.start_date.month %> for <strong><%=  ((booking.end_date - booking.start_date) / 3600).round %> hours </strong> </p>
               <p><% if booking.status == true %>
                   Booking Accepted ✔️
@@ -57,11 +30,32 @@
             </div>
         </div>
         <% end %>
+        <% end %>
         </div>
     </section>
     <section>
-      <h2>Reviews</h2>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dicta vero rerum? Eaque repudiandae architecto libero reprehenderit aliquam magnam ratione quidem? Nobis doloribus molestiae enim deserunt necessitatibus eaque quidem incidunt.
+      <h2>Past Rentals</h2>
+       <div class="cards-tab">
+       <% @bookings.each do |booking| %>
+       <% if booking.end_date < Time.now %>
+       <div class="card-product tab" style="width: 300px">
+            <img src="<%= booking.personality.image_url %>" />
+            <div class="card-product-infos">
+              <p style="color: #eb535b"><strong><%= booking.personality.user.first_name %>, <%= link_to booking.personality.name, booking_path(booking), style: 'color: #eb535b' %></strong></p>
+              <p><%= booking.start_date.day %>/<%= booking.start_date.month %> for <strong><%=  ((booking.end_date - booking.start_date) / 3600).round %> hours </strong> </p>
+              <p><% if booking.status == true %>
+                  Booking Accepted ✔️
+                 <% elsif booking.status == false %>
+                  Booking cancelled ❌
+                 <% else  %>
+                  Booking Pending ⏱
+                 <% end %>
+              </p>
+            </div>
+        </div>
+        <% end %>
+        <% end %>
+        </div>
     </section>
   </div>
 </div>

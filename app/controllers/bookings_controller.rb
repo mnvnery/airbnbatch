@@ -26,6 +26,9 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
+  end
+
+  def index_gigs
     @my_bookings = Booking.where(personality_id: current_user.id)
   end
 
@@ -55,7 +58,7 @@ class BookingsController < ApplicationController
   def destroy
     set_booking
     @booking.destroy
-    redirect_to root_path
+    redirect_to bookings_path
   end
 
   private

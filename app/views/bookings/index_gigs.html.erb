@@ -1,0 +1,69 @@
+<div class="tabs">
+
+  <input type="radio" id="tab1" name="tab-control" checked>
+  <input type="radio" id="tab4" name="tab-control">
+  <ul>
+    <li title="Gigs"><label for="tab1" role="button"><span>Upcoming Gigs</span></label></li>
+    <li title="Reviews"><label for="tab4" role="button"><br><span>Past Gigs</span></label></li>
+  </ul>
+
+  <div class="slider"><div class="indicator"></div></div>
+  <div class="content">
+    <section>
+      <h2>Upcoming</h2>
+      <div class="cards-tab">
+      <% @my_bookings.each do |mybooking| %>
+      <% if mybooking.end_date > Time.now %>
+      <div class="card-product tab" style="width: 300px">
+          <img src="<%= mybooking.personality.image_url %>" />
+          <div class="card-product-infos">
+          <p><strong><%= mybooking.user.first_name %> has booked you</strong></p>
+          <p><%= mybooking.start_date.day %>/<%= mybooking.start_date.month %> for <strong><%=  ((mybooking.end_date - mybooking.start_date) / 3600).round %> hours </strong> </p>
+          <p><% if mybooking.status == nil %>
+              <%= form_for(mybooking) do |f| %>
+              <%= f.submit "Confirm", class: 'btn btn-outline-success btn-sm' %>
+              <%= f.submit "Decline", class: 'btn btn-outline-danger btn-sm' %>
+              <% end %>
+              <% end %>
+              <% if mybooking.status == true %>
+              Booking Accepted ✔️
+             <% elsif mybooking.status == false %>
+              Booking cancelled ❌
+             <% end %>
+          </p>
+        </div>
+    </div>
+    <% end %>
+    <% end %>
+    </div>
+    </section>
+    <section>
+      <h2>Past</h2>
+       <div class="cards-tab">
+        <% @my_bookings.each do |mybooking| %>
+        <% if mybooking.end_date < Time.now %>
+        <div class="card-product tab" style="width: 300px">
+            <img src="<%= mybooking.personality.image_url %>" />
+            <div class="card-product-infos">
+            <p><strong>Your past gig with <%= mybooking.user.first_name %></strong></p>
+            <p><%= mybooking.start_date.day %>/<%= mybooking.start_date.month %> for <strong><%=  ((mybooking.end_date - mybooking.start_date) / 3600).round %> hours </strong> </p>
+            <p><% if mybooking.status == nil %>
+                <%= form_for(mybooking) do |f| %>
+                <%= f.submit "Confirm", class: 'btn btn-outline-success btn-sm' %>
+                <%= f.submit "Decline", class: 'btn btn-outline-danger btn-sm' %>
+                <% end %>
+                <% end %>
+                <% if mybooking.status == true %>
+                Booking Accepted ✔️
+               <% elsif mybooking.status == false %>
+                Booking cancelled ❌
+               <% end %>
+            </p>
+          </div>
+      </div>
+      <% end %>
+      <% end %>
+      </div>
+    </section>
+  </div>
+</div>

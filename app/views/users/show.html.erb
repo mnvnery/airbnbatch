@@ -1,0 +1,21 @@
+<h1>My Profile</h1>
+
+<div class="m-5">
+  <div class="row justify-content-center ">
+    <div class="big-card-product">
+      <%= image_tag current_user.image_url%>
+      <div class="big-card-product-infos">
+        <%= link_to edit_user_registration_path do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <p><strong>Fullname:</strong></p>
+        <h4><%= current_user.first_name%> <%= current_user.last_name%></h4>
+        <p><strong>Language:</strong> <%= current_user.language%></p>
+        <p><strong>City:</strong> <%= current_user.location%></p>
+        <p><strong>Birthdate:</strong> <%= current_user.birthdate%></p>
+        <p><strong>Phone:</strong> <%= current_user.phone%></p>
+        <p><strong>Email:</strong> <%= current_user.email%></p>
+      </div>
+    </div>
+  </div>
+</div>

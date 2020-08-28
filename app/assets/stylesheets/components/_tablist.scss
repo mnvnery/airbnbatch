@@ -1,7 +1,7 @@
 @import "bourbon";
 
 
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* colors */
 $blue: #eb535b;
@@ -14,7 +14,7 @@ $secondary: $accent-inactive;
 
 
 /* tab setting */
-$tab-count: 3;
+$tab-count: 2;
 $indicator-width: 50px;
 $indicator-height: 4px;
 
@@ -60,7 +60,7 @@ html {
 body {
   background: #efefef;
   color: $dark;
-  font-family: "Raleway";
+  font-family: $body-font;
   height: 100%;
 
   h1 {
@@ -91,13 +91,14 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0px;
+  justify-items: center;
   }
 
   .content section h2,
   ul li label {
-    font-family: "Montserrat";
+    font-family: $headers-font;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     color: $accent;
   }
 
@@ -167,7 +168,7 @@ body {
       margin: 0 auto;
       height: $indicator-height;
       background: $accent;
-      border-radius: 1px;
+      border-radius: 3px;
     }
 
   }

@@ -22,6 +22,22 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+// $(document).ready(function() {
+
+//    $(window).scroll(function() {
+
+//        var height = $('.banner').height();
+//       var scrollTop = $(window).scrollTop();
+
+//        if (scrollTop >= height - 40) {
+//            $('.navbar').addClass('solid-nav');
+//        } else {
+//            $('.navbar').removeClass('solid-nav');
+//        }
+
+//    });
+// });
+
 // External imports
 import "bootstrap";
 
