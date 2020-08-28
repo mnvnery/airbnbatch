@@ -1,12 +1,12 @@
 <h1>My Profile</h1>
 
 <div class="m-5">
-  <div class="row justify-content-center ">
-    <div class="big-card-product">
+  <div class="row justify-content-center" >
+    <div class="big-card-product" style="border-radius: 8px">
       <%= image_tag current_user.image_url%>
       <div class="big-card-product-infos">
         <%= link_to edit_user_registration_path do %>
-          <i class="far fa-edit"></i>
+          <i class="far fa-edit" style="color: #eb535b"></i>
         <% end %>
         <p><strong>Fullname:</strong></p>
         <h4><%= current_user.first_name%> <%= current_user.last_name%></h4>
@@ -15,6 +15,7 @@
         <p><strong>Birthdate:</strong> <%= current_user.birthdate%></p>
         <p><strong>Phone:</strong> <%= current_user.phone%></p>
         <p><strong>Email:</strong> <%= current_user.email%></p>
+        <p class="text-left pt-3 back-link"><%= link_to "Back", personalities_path %></p>
       </div>
     </div>
   </div>

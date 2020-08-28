@@ -1,7 +1,7 @@
-<div class="rentals-container mt-4">
+<div class="rentals-container mt-5">
   <div class="card no-border mx-auto w-25" style="width: 18rem;">
   <img src="<%= @booking.personality.image_url %>" alt="" class='avatar-xlarge m-3 mt-4 mx-auto'>
-  <h5 class="mx-auto">  Booking with <%= @booking.personality.user.first_name %></h5>
+  <h5 class="text-center mx-auto">  Booking with <%= @booking.personality.user.first_name %></h5>
   <p class="mx-auto"> <%= @booking.personality.name %> </p>
   <div class="px-4 pb-4 pt-0">
     <div class="d-flex justify-content-center text-center my-4">
@@ -29,19 +29,9 @@
     <% end %>
   </div>
 
-</div>
-<div class="mx-auto w-25">
-  <p class="text-left pt-3 back-link"><%= link_to "Back", bookings_path %></p>
-</div>
+  </div>
+  <div class="mx-auto w-25">
+    <p class="text-left pt-3 back-link"><%= link_to "Back", bookings_path %></p>
+  </div>
 </div>
 
-
-
-<!--
-        <%= link_to 'Edit |', edit_booking_path %>
-        <%= link_to "Cancel",
-            booking_path(@booking),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
--->
-  

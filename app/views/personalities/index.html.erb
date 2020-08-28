@@ -6,7 +6,7 @@
     <p class="pb-3">Discover skills you never dreamed they had</p>
 
     <div align="center">
-      <%= form_tag personalities_path, method: :get, class: 'form-width w-100' do %>
+      <%= form_tag personalities_path, method: :get, class: 'form-width w-100 flex d-flex justify-content-center' do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control w-50 search-bar",
