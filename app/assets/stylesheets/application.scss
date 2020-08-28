@@ -28,7 +28,6 @@ body {
   grid-gap: 16px;
 }
 
-
 .sub-title {
   font-size: 28px;
   text-align: center;
@@ -57,3 +56,7 @@ body {
   color:#eb535b;
 }
 
+.sticky-top {
+  z-index: 0;
+  top: 10%;
+}
