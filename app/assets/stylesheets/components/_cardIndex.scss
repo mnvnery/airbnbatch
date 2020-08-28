@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   margin: 12px;
+  border-radius: 8px;
 }
 
 .card-product .tab {
@@ -22,7 +23,7 @@
 }
 
 .card-product h2 {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0;
 }

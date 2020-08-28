@@ -1,0 +1,22 @@
+.no-border {
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.10);
+  border-radius: 8px;
+}
+
+.card p {
+  color: rgba(0,0,0,0.3);
+  margin-top: 0;
+}
+.card h5 {
+  color: rgba(0,0,0,0.9);
+  font-weight: 600;
+  margin-bottom: 0;
+
+}
+
+.date {
+  color: rgba(0,0,0,1);
+  font-size: 12px;
+  font-weight: 600;
+}

@@ -1,7 +1,15 @@
-<%= simple_form_for (@booking) do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit "Edit", class: "btn btn-primary"%>
-        <%= link_to "Back", booking_path(@booking), class: "btn btn-outline-primary m-2"%>
-<% end%>
+
+      <div class="booking-container p-3 mx-auto mt-5">
+
+              <%= simple_form_for (@booking) do |f| %>
+              <h6>From</h6>
+              <%= f.datetime_local_field :start_date, class: 'date-field' %>
+              <h6>To</h6>
+              <%= f.datetime_local_field :end_date, class: 'date-field' %>
+              <%= f.submit "Edit Booking", class: "btn btn-pink w-100"%>
+          <% end%>
+          </div>
+
+
+        <%= link_to "Back", booking_path(@booking) %>
 
