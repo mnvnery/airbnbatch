@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
       @booking.value = 0
     end
     if @booking.save
-      redirect_to personality_path(@personality)
+      redirect_to bookings_path
     else
       redirect_to personalities_path
     end
