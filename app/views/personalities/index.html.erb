@@ -1,38 +1,36 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://miro.medium.com/max/10944/0*YK9PoWRQLxnaaooW);">
+<div class="banner" style="background-image: linear-gradient(to right, rgba(247, 140, 160, 0.7) 0%,rgba(249, 116, 143, 0.7) 19%, rgba(253, 134, 140, 0.7) 60%, rgba(254, 154, 139, 0.7) 100%), url(https://miro.medium.com/max/1400/1*btKhyXNSuB0yt2pwIFzA6Q.jpeg);">
+
+
   <div class="container">
-    <h1>AirBnBatch connects <strong>you</strong> with <strong>fascinating personalities!</strong>!</h1>
-    <p>Get to know them the way you want!</p>
-    <%= link_to "Add your Personality",new_personality_path , class: "btn btn-flat" %>
+    <h1 class="pb-0">The whole batch is up for rent</h1>
+    <p class="pb-3">Discover skills you never dreamed they had</p>
+
+    <div align="center">
+      <%= form_tag personalities_path, method: :get, class: 'form-width w-100' do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control w-50 search-bar",
+          placeholder: "Find Dope Personalities by Name or Location"
+        %>
+        <%= submit_tag "🔎", class: "btn btn-pink-search" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="text-center mx-auto">
-  <h3 class= "pt-3">Check out some of the <strong id="orange-word">coolest People</strong> in the Batch 448 community</h3>
-
-  <i class="fas fa-angle-double-down"></i>
-
-  <div class="pt-5">
-    <%= form_tag personalities_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control w-50 mx-auto",
-        placeholder: "Find Dope Personalities by Name or Location"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary mb-3 mt-3" %>
-    <% end %>
-  </div>
+  <h3 class= "pt-3">Check out some of the <strong id="orange-word">coolest people</strong> from Batch 448</h3>
 </div>
 
-<div class="border-top mt-5 mb-5">
+<div class="mb-5">
   <div class="p-4">
-    <h5 class= "text-left">Personalities you might love to spend time with:</h5>
     <div class="row justify-content-center justify-content-lg-start">
       <% @personalities.each do |personality| %>
         <div class="card-product">
           <img src= <%= personality.image_url %> />
             <div class="card-product-infos ">
-              <h2 style='color:#eb535b;'> <%= personality.user.first_name  %> <%=  link_to personality.name, personality_path(personality), style: 'color:#eb535b;' %></h2>
-              <h3> from $<%= personality.price_hour %> per hour</h3>
+              <h2 style='color:#eb535b;'> <%= personality.user.first_name  %> the <%=  link_to personality.name, personality_path(personality), style: 'color:#eb535b;' %></h2>
+              <h3><%= personality.price_hour %>€/hour</h3>
               <!-- <p> <%= personality.description %> </p> -->
             </div>
         </div>

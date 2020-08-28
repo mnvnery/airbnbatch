@@ -1,83 +1,75 @@
-<div class="container w-100 pl-0 pt-4">
-  <div class="container pl-0">
-    <div class="d-flex flex-row mt-3">
-      <div class='personality-img-container'>
-        <img src="<%= @personality.image_url %>" alt="personality" class='avatar-xlarge'>
-        <div class="edit-container">
-        <p class="edit-text-center">
-          <% if current_user == @personality.user %>
-          <%= link_to 'Edit', edit_personality_path  %>
-        <% end %>
-        </p>
+<div class="main-container">
+  <div class="container w-100 pl-0 pt-4">
+    <div class="container pl-0">
+      <div class="d-flex flex-row mt-3">
+        <div class='personality-img-container'>
+          <img src="<%= @personality.image_url %>" alt="personality" class='avatar-xlarge'>
+          <div class="edit-container">
+          <p class="edit-text-center">
+            <% if current_user == @personality.user %>
+            <%= link_to 'Edit', edit_personality_path  %>
+          <% end %>
+          </p>
+          </div>
         </div>
-      </div>
-      <div class="align-self-center mx-3">
-          <p class='user-name my-0'> <%= @personality.user.first_name %> </p>
-          <p class='personality-title my-0'> <%= @personality.name %> </p>
+        <div class="align-self-center mx-3">
+            <h6 class='user-name my-0'> <%= @personality.user.first_name %> </h6>
+            <p class='personality-title my-0'> <%= @personality.name %> </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container p-3">
-    <div class="row">
-      <div class="col-8 pl-0">
-        <div class="border-top mr-5"></div>
-        <p class="mt-4" style="font-weight: 600">About me</p>
-        <p class="mr-5" style="font-size: 0.9em"><%= @personality.description %></p>
-        <div class="mt-5 border-top mr-5"></div>
-        <p class="mt-4" style="font-weight: 600">Reviews</p>
-        <div class="cards">
-          <% @personality.bookings.each do |booking|  %>
-            <% booking.personality_reviews.each do |personality_review|  %>
-            <div class="pr-3">
-            <i class="fas fa-star" style="font-size:10px; color: #eb535b"></i><span style="font-size:10px; font-weight:600"> <%= (personality_review.rating) %></span>
-            <p style="font-size: 0.7em"> <%= personality_review.comment %></p>
-            </div>
-           <% end %>
-           <% end %>
+    <div class="container p-3">
+      <div class="row">
+        <div class="col-8 pl-0">
+          <div class="border-top mr-5"></div>
+          <h6 class="mt-4" style="font-weight: 600">About me</h6>
+          <p class="mr-5" style="font-size: 0.9em"><%= @personality.description %></p>
+          <div class="mt-5 border-top mr-5"></div>
+          <h6 class="mt-4" style="font-weight: 600">Reviews</h6>
+          <div class="cards">
+            <% @personality.bookings.each do |booking|  %>
+              <% booking.personality_reviews.each do |personality_review|  %>
+              <div class="pr-3">
+              <img src="<%= personality_review.booking.user.image_url %>" alt="" class='avatar'>
+              <i class="fas fa-star" style="font-size:10px; color: #eb535b"></i><span style="font-size:10px; font-weight:600"> <%= (personality_review.rating) %></span>
+              <p class="mt-3" style="font-size: 0.7em"> <%= personality_review.comment %></p>
+              </div>
+             <% end %>
+
+             <% end %>
+          </div>
+          <div class="mt-5 border-top mr-5"></div>
+          <h6 class="mt-4" style="font-weight: 600">Location</h6>
+          <div id="map"
+             style="width: 100% !important; height: 100% !important;"
+             data-markers="<%= @markers.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
-        <div class="mt-5 border-top mr-5"></div>
-        <p class="mt-4" style="font-weight: 600">Location</p>
-        <div id="map"
-           style="width: 100% !important; height: 100% !important;"
-           data-markers="<%= @markers.to_json %>"
-           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div class="col-4">
+          <div class="booking-container p-3 sticky-top">
+
+              <%= simple_form_for [@personality, @booking] do |f| %>
+              <h4 class="price-hour pb-3"><%= @personality.price_hour %>€<span style="font-size: 12px"> /hour</span></h4>
+              <h6>From</h6>
+              <%= f.datetime_local_field :start_date, class: 'date-field' %>
+              <h6>To</h6>
+              <%= f.datetime_local_field :end_date, class: 'date-field' %>
+              <%= f.submit "Book", class: "btn btn-pink w-100"%>
+
+              <p class="mt-4 border-top"></p>
+              <div class='d-flex justify-content-between mt-3'>
+                <h6><strong>Total</strong></h6>
+                <h6><strong><%= @booking.total_price %>€</strong></h6>
+              </div>
+          <% end%>
+          </div>
+
         </div>
       </div>
-      <div class="col-4">
-        <div class="booking-container p-3 sticky-top">
 
-            <%= simple_form_for [@personality, @booking] do |f| %>
-            <p class="price-hour pb-3"><%= @personality.price_hour %>€<span style="font-size: 12px">/hour</span></p>
-            <p>From</p>
-            <%= f.datetime_local_field :start_date, class: 'date-field' %>
-            <p>To</p>
-            <%= f.datetime_local_field :end_date, class: 'date-field' %>
-            <%= f.submit "Book", class: "btn btn-pink w-100"%>
-
-            <p class="mt-4 border-top"></p>
-            <div class='d-flex justify-content-between mt-3'>
-              <p><strong>Total</strong></p>
-              <p><strong><%= @booking.total_price %>€</strong></p>
-            </div>
-        <% end%>
-        </div>
-
-      </div>
     </div>
-
+     <!-- <%= link_to "Back", personalities_path, class: "btn btn-outline-primary" %> -->
   </div>
-
-
-
-
-
-
-
-
-
-
-   <!-- <%= link_to "Back", personalities_path, class: "btn btn-outline-primary" %> -->
-
-
 </div>
