@@ -51,7 +51,7 @@
           <div class="booking-container p-3 sticky-top">
 
               <%= simple_form_for [@personality, @booking] do |f| %>
-              <h4 class="price-hour pb-3"><%= @personality.price_hour %>€<span style="font-size: 12px"> /hour</span></h4>
+              <h4 class="price-hour pb-3" data-price="<%= @personality.price_hour %>"><%= @personality.price_hour %>€<span style="font-size: 12px"> /hour</span></h4>
               <h6>From</h6>
               <%= f.datetime_local_field :start_date, class: 'date-field' %>
               <h6>To</h6>
@@ -61,7 +61,7 @@
               <p class="mt-4 border-top"></p>
               <div class='d-flex justify-content-between mt-3'>
                 <h6><strong>Total</strong></h6>
-                <h6><strong><%= @booking.total_price %>€</strong></h6>
+                <h6><strong id="total_price"><%= @booking.calc_total_price %></strong>€</h6>
               </div>
           <% end%>
           </div>
@@ -73,3 +73,6 @@
      <!-- <%= link_to "Back", personalities_path, class: "btn btn-outline-primary" %> -->
   </div>
 </div>
+
+
+
