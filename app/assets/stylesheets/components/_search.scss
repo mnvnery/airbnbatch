@@ -1,29 +1,27 @@
 .btn-pink-search {
- color: #fff;
+ color: #ffff;
     background-color: #F4F4F4;
     border-color: #F4F4F4;
     border-radius: 0px 8px 8px 0px;
-    float: left;
+    float: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
 .btn-pink-search:hover {
-    color: #fff;
-    background-color: #eb535b;
-    border-color: #eb535b;
+    color: #ffff;
+    background-color: white;
+    border-color: #e5e3e3;
 }
 
 .search-bar {
  border-radius: 8px 0px 0px 8px;
  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
- float: left;
+ float: center;
 }
 
 .search-bar::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: rgba(0,0,0,0.3);
   font-size: 14px;
-}
-
-.form-div{
 }
 
 

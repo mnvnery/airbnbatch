@@ -28,14 +28,29 @@ body {
   grid-gap: 16px;
 }
 
-.text-center {
+
+.sub-title {
   font-size: 28px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  text-align: center;
+  margin: 10px;
+  color: rgba(0,0,0,0.6);
 }
 
 #orange-word {
- color:#eb535b;
+    color: #fff;
+    background: linear-gradient(90deg, #845ec2, #d65db1, #ff6f91, #ff9671, #ffc75f, #f9f871);
+    background-size: 300%;
+    background-position: left;
+    background-clip: text;
+   -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-bg-animation 10s infinite;
+}
+
+@keyframes text-bg-animation{
+    0%{background-position:0% 87%}
+    50%{background-position:100% 14%}
+    100%{background-position:0% 87%}
 }
 
 .text-center .fas {
