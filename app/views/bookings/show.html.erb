@@ -1,33 +1,38 @@
-<div class="rentals-container">
+<div class="rentals-container mt-4">
   <div class="card no-border mx-auto w-25" style="width: 18rem;">
   <img src="<%= @booking.personality.image_url %>" alt="" class='avatar-xlarge m-3 mt-4 mx-auto'>
   <h5 class="mx-auto">  Booking with <%= @booking.personality.user.first_name %></h5>
   <p class="mx-auto"> <%= @booking.personality.name %> </p>
   <div class="px-4 pb-4 pt-0">
-    <div class="row text-center pt-0">
-      <div class="col">
-      <p><strong><%= @booking.start_date.hour %>:<%= @booking.start_date.min %></strong></p>
-      <p class="date"><%= @booking.start_date.day %>/<%= @booking.start_date.month %></p>
+    <div class="d-flex justify-content-center text-center my-4">
+      <div class="flex-item">
+        <p class="mb-0" ><%= @booking.start_date.hour %>:<%= @booking.start_date.min %></p>
+        <p class="date" style="color:black;"><%= @booking.start_date.day %>/<%= @booking.start_date.month %></p>
       </div>
-      <div class="col">
-      <p><strong><%= @booking.end_date.hour %>:<%= @booking.end_date.min %></strong></p>
-      <p class="date"><%= @booking.end_date.day %>/<%= @booking.end_date.month %></p>
+      <div class='flex-item mx-3' ><strong> - </strong></div>
+      <div class="flex-item">
+        <p class="mb-0"><%= @booking.end_date.hour %>:<%= @booking.end_date.min %></p>
+        <p class="date" style="color:black;"><%= @booking.end_date.day %>/<%= @booking.end_date.month %></p>
       </div>
     </div>
     <% if @booking.personality_reviews.count < 1 && @booking.end_date < Time.now %>
       <%= link_to "Leave a review", new_booking_personality_review_path(@booking), class: "btn btn-pink w-100" %>
     <% elsif @booking.end_date > Time.now %>
       <%= link_to 'Edit your booking', edit_booking_path, class: "btn btn-pink w-100" %>
+        <p class="mt-4 border-top"></p>
+        <div class='d-flex justify-content-between mt-3'>
+          <h6>Total Price</h6>
+          <h6><%= @booking.total_price %>€</h6>
+        </div>
       <% else %>
       <p class="card-text ml-3">This booking has passed and you're all up to date with your reviews!</p>
     <% end %>
-
-
   </div>
 
 </div>
-  <p class="text-center"><%= link_to "Back", bookings_path %></p>
-
+<div class="mx-auto w-25">
+  <p class="text-left pt-3 back-link"><%= link_to "Back", bookings_path %></p>
+</div>
 </div>
 
 
