@@ -2,16 +2,22 @@ class PersonalitiesController < ApplicationController
   def index
     @personalities = Personality.all
     if params[:query].present?
-      sql_query = "name @@ :query OR users.location @@ :query"
+      sql_query = "users.first_name @@ :query OR users.location @@ :query"
       @personalities = Personality.where(sql_query, query: "%#{params[:query]}%")
       @personalities = Personality.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     else
       @personalities = Personality.all
 
     end
-
     if params[:sort]
-      @persoanlities = Personality.order(name: :desc, price_hour: :desc)
+      if params[:sort] == "name"
+        @personalities = @personalities.order(name: :asc)
+      elsif params[:sort] == "price"
+        @personalities = @personalities.order(price_hour: :asc)
+      else
+        @personalities = @personalities.order(created_at: :desc)
+      end
+
     end
   end
 
