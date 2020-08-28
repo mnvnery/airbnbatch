@@ -32,23 +32,30 @@
   <h3 class= "sub-title">Check out some of the <strong id="orange-word">coolest people</strong> from Batch 448</h3>
 </div>
 
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label>
+    <%= link_to "New", personalities_path(sort: :recent), method: "get", remote: true, class: "btn btn-secondary active", type: 'radio'%>
+  </label>
+  <label>
+    <%= link_to "Price", personalities_path(sort: :price), method: "get", remote: true, class: "btn btn-secondary", type: 'radio'%>
+  </label>
+  <label>
+    <%= link_to "Name", personalities_path(sort: :name), method: "get", remote: true, class: "btn btn-secondary", type: 'radio'%>
+  </label>
+</div>
+
+
+
 <div class="mb-5">
-  <div class="p-5">
-    <div class="row justify-content-center justify-content-lg-start">
-      <% @personalities.each do |personality| %>
-        <div class="card-product">
-          <img src= <%= personality.image_url %> />
-            <div class="card-product-infos ">
-              <h2 style='color:#eb535b;'> <%= personality.user.first_name  %> the <%=  link_to personality.name, personality_path(personality), style: 'color:#eb535b;' %></h2>
-              <h3><%= personality.price_hour %>€/hour</h3>
-              <!-- <p> <%= personality.description %> </p> -->
-            </div>
-        </div>
-      <% end %>
+  <div class="px-4">
+    <div class="row justify-content-center justify-content-lg-start" id="personalities-list">
+      <%= render 'listing', personalities: @personalities %>
     </div>
   </div>
 </div>
 
 
+
+<div class="mb-5"> </div>
 
 
