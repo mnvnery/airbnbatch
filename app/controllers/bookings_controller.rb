@@ -29,7 +29,8 @@ class BookingsController < ApplicationController
   end
 
   def index_gigs
-    @my_bookings = Booking.where(personality_id: current_user.id)
+    @personalities = current_user.personalities
+    @my_bookings = Booking.where(personality_id: @personalities.pluck(:id))
   end
 
   def show
@@ -45,10 +46,10 @@ class BookingsController < ApplicationController
     set_booking
     if params[:commit] == 'Confirm'
       @booking.update(status: true)
-      redirect_to bookings_path
+      redirect_to index_gigs_path
     elsif params[:commit] == 'Decline'
       @booking.update(status: false)
-      redirect_to bookings_path
+      redirect_to index_gigs_path
     else
       @booking.update(booking_params)
       redirect_to bookings_path
