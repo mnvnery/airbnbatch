@@ -43,8 +43,16 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
+import { addEventListenerToBookingDates } from '../components/booking_total_updated';
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  addEventListenerToBookingDates();
 })
+
+
+
+
+
 
