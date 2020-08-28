@@ -15,15 +15,25 @@
         <%= submit_tag "🔎", class: "btn btn-pink-search" %>
       <% end %>
     </div>
+      <div class="mouse_scroll">
+          <div class="mouse">
+            <div class="wheel"></div>
+          </div>
+          <div>
+            <span class="m_scroll_arrows unu"></span>
+            <span class="m_scroll_arrows doi"></span>
+            <span class="m_scroll_arrows trei"></span>
+          </div>
+      </div>
   </div>
 </div>
 
-<div class="text-center mx-auto">
-  <h3 class= "pt-3">Check out some of the <strong id="orange-word">coolest people</strong> from Batch 448</h3>
+<div class="text-center mt-5 mx-auto">
+  <h3 class= "sub-title">Check out some of the <strong id="orange-word">coolest people</strong> from Batch 448</h3>
 </div>
 
 <div class="mb-5">
-  <div class="p-4">
+  <div class="p-5">
     <div class="row justify-content-center justify-content-lg-start">
       <% @personalities.each do |personality| %>
         <div class="card-product">
@@ -39,7 +49,6 @@
   </div>
 </div>
 
-<div class="mb-5"> </div>
 
 
 
