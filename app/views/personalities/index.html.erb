@@ -32,15 +32,15 @@
   <h3 class= "sub-title">Check out some of the <strong id="orange-word">coolest people</strong> from Batch 448</h3>
 </div>
 
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
+<div class="btn-group ml-3">
   <label>
-    <%= link_to "New", personalities_path(sort: :recent), method: "get", remote: true, class: "btn btn-secondary active", type: 'radio'%>
+    <%= link_to "New", personalities_path(sort: :recent), method: "get", remote: true, class: "btn btn-light", type: 'radio'%>
   </label>
   <label>
-    <%= link_to "Price", personalities_path(sort: :price), method: "get", remote: true, class: "btn btn-secondary", type: 'radio'%>
+    <%= link_to "Price", personalities_path(sort: :price), method: "get", remote: true, class: "btn btn-light", type: 'radio'%>
   </label>
   <label>
-    <%= link_to "Name", personalities_path(sort: :name), method: "get", remote: true, class: "btn btn-secondary", type: 'radio'%>
+    <%= link_to "Name", personalities_path(sort: :name), method: "get", remote: true, class: "btn btn-light", type: 'radio'%>
   </label>
 </div>
 
@@ -56,6 +56,6 @@
 
 
 
-<div class="mb-5"> </div>
+<div class="pb-3 mb-5"> </div>
 
 

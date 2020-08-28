@@ -27,9 +27,13 @@
           <p class="mr-5" style="font-size: 0.9em"><%= @personality.description %></p>
           <div class="mt-5 border-top mr-5"></div>
           <h6 class="mt-4" style="font-weight: 600">Reviews</h6>
+            <% if @personality.bookings.count == 0 %>
+              <p style="font-size: 0.9em">This personality has no reviews yet. Be the first to review them!</p>
+            <% end %>
           <div class="cards">
             <% @personality.bookings.each do |booking|  %>
               <% booking.personality_reviews.each do |personality_review|  %>
+
               <div class="pr-3">
               <img src="<%= personality_review.booking.user.image_url %>" alt="" class='avatar'>
               <i class="fas fa-star" style="font-size:10px; color: #eb535b"></i><span style="font-size:10px; font-weight:600"> <%= (personality_review.rating) %></span>
