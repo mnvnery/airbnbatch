@@ -24,10 +24,26 @@
 </div>
 
 <div class="border-top mt-5 mb-5">
+
   <div class="p-4">
+
     <h5 class= "text-left">Personalities you might love to spend time with:</h5>
+      <%= link_to "sort", personalities_path, method: "get", remote: true%>
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+  </label>
+</div>
+
     <div class="row justify-content-center justify-content-lg-start">
-      <% @personalities.each do |personality| %>
+      <% @personalities.order(name: :desc).each do |personality| %>
         <div class="card-product">
           <img src= <%= personality.image_url %> />
             <div class="card-product-infos ">
@@ -41,7 +57,11 @@
   </div>
 </div>
 
-<div class="mb-5"> </div>
+<div>
 
+</div>
+
+
+<div class="mb-5"> </div>
 
 

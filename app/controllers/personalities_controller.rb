@@ -7,6 +7,11 @@ class PersonalitiesController < ApplicationController
       @personalities = Personality.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     else
       @personalities = Personality.all
+
+    end
+
+    if params[:sort]
+      @persoanlities = Personality.order(name: :desc, price_hour: :desc)
     end
   end
 
