@@ -11,6 +11,7 @@
 User.create!(first_name: 'Maria', last_name: 'Nery', location: '16 Villa Gaudelet, Paris', language: 'English, Portugese', phone: '+351 91 515 6924', email: 'mnvnery@gmail.com', password: 'test123', birthdate: Date.new(1997,7,23), image_url: 'https://avatars1.githubusercontent.com/u/67118326?v=4' )
 User.create!(first_name: 'Sini', last_name: 'Ninkovic', location: '6049 Fairlane Drive, 94611, Oakland, CA, USA', language: 'English, German, Croatian', phone: '+1 510 220 9753', email: 'sini.sn.ninkovic@gmail.com', password: 'test123', birthdate: Date.new(1986,10,25), image_url: 'https://avatars3.githubusercontent.com/u/67879815?v=4' )
 User.create!(first_name: 'Branca', last_name: 'Chiotte', location: 'Lisbon', language: 'English, Portugese', phone: '+351 917420504', email: 'brancachiotte@gmail.com', password: 'test123', birthdate: Date.new(1987,7,11), image_url: 'https://avatars2.githubusercontent.com/u/68083103?v=4' )
+User.create!(first_name: 'Adriano', last_name: 'Leite', location: 'Bernardim Ribeiro, 32 Lisboa', language: 'English, Portugese', phone: '+351 935791737', email: 'adrianobleite@gmail.com', password: 'test123', birthdate: Date.new(1977,10,12), image_url: 'https://avatars0.githubusercontent.com/u/67058933?s=400&u=fbdcb63272230f8683214d173631794158da9453&v=4' )
 
 # /personalities  GET personalities index
 # /personalities/:id  GET personalities show
